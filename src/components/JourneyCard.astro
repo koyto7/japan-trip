@@ -5,18 +5,22 @@ interface Props {
   dates: string;
   description: string;
   image?: string;
+  href?: string;
 }
 
-const { act, title, dates, description, image } = Astro.props;
+const { act, title, dates, description, image, href } = Astro.props;
 ---
 
-<div class="relative overflow-hidden min-h-[200px] flex flex-col justify-end rounded-xl border-t-[3px] border-vermillion transition-transform duration-200 hover:-translate-y-1">
+<a 
+  href={href || '#'} 
+  class="block relative overflow-hidden min-h-[220px] rounded-xl border-t-[3px] border-vermillion transition-all duration-200 hover:-translate-y-1 hover:border-gold group"
+>
   {/* Background - either image or solid color */}
   {image ? (
     <img
       src={image}
       alt={title}
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
     />
   ) : (
     <div class="absolute inset-0 bg-surface"></div>
@@ -25,19 +29,25 @@ const { act, title, dates, description, image } = Astro.props;
   {/* Dark overlay for readability */}
   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
 
-  {/* Content */}
-  <div class="relative z-10 p-5">
-    <p class="text-[0.65rem] tracking-widest text-vermillion uppercase mb-2">
+  {/* Act Label - Top Left */}
+  <div class="absolute top-3 left-3 z-20">
+    <span class="inline-block bg-black/70 backdrop-blur-sm text-vermillion text-xs tracking-widest uppercase px-3 py-1.5 rounded">
       {act}
-    </p>
-    <h3 class="font-display text-2xl font-normal mb-1">
+    </span>
+  </div>
+
+  {/* Content - Bottom */}
+  <div class="absolute bottom-0 left-0 right-0 z-10 p-5">
+    <h3 class="font-display text-2xl font-normal mb-1 group-hover:text-gold transition-colors">
       {title}
     </h3>
-    <p class="text-sm text-gold mb-3">
+    <p class="text-sm text-gold mb-2">
       {dates}
     </p>
-    <p class="text-sm text-gray-300">
+    <p class="text-sm text-gray-300 line-clamp-2">
       {description}
     </p>
   </div>
-</div>
+</a>
+
+

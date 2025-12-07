@@ -1,0 +1,171 @@
+---
+import DetailPageLayout from '../layouts/DetailPageLayout.astro';
+---
+
+<DetailPageLayout 
+  title="The Finale"
+  subtitle="2 days of Japan's kitchen, neon nightlife, and city energy"
+  heroImage="/images/journey_osaka.png"
+  actLabel="Act IV · Oct 13–15"
+>
+  <!-- Food Guide -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Osaka Food Guide</h2>
+    <p class="text-gray-400 mb-6">"Kuidaore" - eating until you drop. Osaka's food culture is legendary.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🐙</span>
+          <h3 class="text-gold font-medium">Takoyaki</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Crispy outside, molten inside octopus balls. The quintessential Osaka street food.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add best spots...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🥞</span>
+          <h3 class="text-gold font-medium">Okonomiyaki</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Savory grilled pancake loaded with cabbage, pork, and toppings. Osaka-style is mixed before grilling.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add best spots...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🍢</span>
+          <h3 class="text-gold font-medium">Kushikatsu</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Deep-fried skewers - meat, seafood, vegetables. Never double-dip in the communal sauce!</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add best spots...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🍜</span>
+          <h3 class="text-gold font-medium">Ramen</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Osaka-style tends towards rich tonkotsu (pork bone) broth.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add best spots...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dotonbori -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Dotonbori Area</h2>
+    <p class="text-gray-400 mb-6">The heart of Osaka's entertainment district. Neon signs, canal views, giant moving signs, and endless food.</p>
+    
+    <div class="detail-card">
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🦀</div>
+        <div>
+          <h4 class="font-medium">Glico Man Sign</h4>
+          <p class="text-gray-400 text-sm">The iconic running man - Osaka's most photographed spot</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🌊</div>
+        <div>
+          <h4 class="font-medium">Dotonbori Canal</h4>
+          <p class="text-gray-400 text-sm">Walk along both sides. Best at night with all the neon reflections</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🛍️</div>
+        <div>
+          <h4 class="font-medium">Shinsaibashi Shopping Arcade</h4>
+          <p class="text-gray-400 text-sm">600m covered arcade connecting to Dotonbori</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🍺</div>
+        <div>
+          <h4 class="font-medium">Nightlife</h4>
+          <p class="text-gray-400 text-sm">Bars, clubs, and izakaya open late. Osaka knows how to party.</p>
+        </div>
+      </div>
+      <p class="text-vermillion text-xs mt-4 italic">Add specific spots to visit...</p>
+    </div>
+  </section>
+
+  <!-- Day Activities -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Day Activities</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Osaka Castle</h3>
+        <p class="text-gray-400 text-sm">Osaka's landmark fortress. The castle park is beautiful for walking. Interior is a modern museum.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Shinsekai</h3>
+        <p class="text-gray-400 text-sm">Retro entertainment district with Tsutenkaku Tower. Birthplace of kushikatsu.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Kuromon Market</h3>
+        <p class="text-gray-400 text-sm">"Osaka's Kitchen" - fresh seafood, wagyu, and more. Best for brunch.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Umeda Sky Building</h3>
+        <p class="text-gray-400 text-sm">Unique floating garden observatory with 360° views of the city.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day Trips -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Possible Day Trips</h2>
+    <p class="text-gray-400 mb-6">If you have extra time or want alternatives.</p>
+    
+    <div class="detail-card">
+      <div class="detail-list-item">
+        <div class="detail-list-icon">⛳</div>
+        <div>
+          <h4 class="font-medium">Kobe</h4>
+          <p class="text-gray-400 text-sm">30 min - Harbor views, Kobe beef, sake breweries in Nada</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🏯</div>
+        <div>
+          <h4 class="font-medium">Himeji</h4>
+          <p class="text-gray-400 text-sm">1 hour - Japan's most spectacular original castle</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🦌</div>
+        <div>
+          <h4 class="font-medium">Nara</h4>
+          <p class="text-gray-400 text-sm">45 min - Can be done from Osaka if you didn't visit from Kyoto</p>
+        </div>
+      </div>
+      <p class="text-vermillion text-xs mt-4 italic">Add if planning any day trips...</p>
+    </div>
+  </section>
+
+  <!-- Departure -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Departure Notes</h2>
+    <div class="detail-card">
+      <div class="flex items-start gap-4 py-3">
+        <div class="text-gold font-medium w-32 flex-shrink-0">Kansai Airport</div>
+        <div>
+          <p class="text-gray-300">If flying out from Osaka (open jaw ticket)</p>
+          <p class="text-gray-400 text-sm mt-1">Nankai Rapi:t or JR Haruka from Namba/Tennoji</p>
+          <p class="text-vermillion text-xs mt-2 italic">Add flight details...</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 py-3 border-t border-gray-800">
+        <div class="text-gold font-medium w-32 flex-shrink-0">Back to Tokyo</div>
+        <div>
+          <p class="text-gray-300">If flying from Tokyo (round trip ticket)</p>
+          <p class="text-gray-400 text-sm mt-1">Shinkansen Osaka → Tokyo (~2.5 hours), then to Haneda/Narita</p>
+          <p class="text-vermillion text-xs mt-2 italic">Add timing...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DetailPageLayout>

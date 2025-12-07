@@ -1,17 +1,24 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import DetailHero from '../components/DetailHero.astro';
 import '../styles/global.css';
 
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  subtitle?: string;
+  heroImage: string;
+  actLabel?: string;
 }
 
 const { 
-  title = 'Time Traveler’s Itinerary — Japan 2026',
-  description = 'A 15-day journey through time in Japan. October 1-15, 2026.'
+  title,
+  subtitle,
+  heroImage,
+  actLabel,
 } = Astro.props;
+
+const pageTitle = `${title} — Time Traveler's Itinerary`;
 ---
 
 <!DOCTYPE html>
@@ -19,15 +26,24 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={`${title} - Japan 2026 trip details`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body class="min-h-screen">
     <Header />
-    <main>
+    
+    <DetailHero 
+      title={title}
+      subtitle={subtitle}
+      heroImage={heroImage}
+      actLabel={actLabel}
+    />
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
       <slot />
     </main>
+
     <Footer />
     
     <script>
@@ -39,13 +55,12 @@ const {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-              // Optional: unobserve after revealing to improve performance
               observer.unobserve(entry.target);
             }
           });
         }, {
-          threshold: 0.1, // Trigger when 10% of element is visible
-          rootMargin: '0px 0px -50px 0px' // Trigger slightly before element reaches viewport bottom
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
         });
 
         revealElements.forEach(el => observer.observe(el));

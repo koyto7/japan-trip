@@ -74,6 +74,40 @@
   .badge-priority {
     @apply bg-vermillion/20 text-vermillion;
   }
+
+  /* Detail page sections */
+  .detail-section {
+    @apply mb-16;
+  }
+
+  .detail-section-title {
+    @apply font-display text-3xl font-normal mb-6 flex items-center gap-3;
+  }
+
+  .detail-section-title::before {
+    content: '';
+    @apply w-1 h-8 bg-vermillion rounded-full;
+  }
+
+  .detail-subsection {
+    @apply mb-8;
+  }
+
+  .detail-subsection-title {
+    @apply text-lg font-medium text-gold mb-4;
+  }
+
+  .detail-card {
+    @apply bg-surface rounded-xl p-5 border border-gray-800 hover:border-vermillion/50 transition-colors;
+  }
+
+  .detail-list-item {
+    @apply flex items-start gap-3 py-3 border-b border-gray-800 last:border-0;
+  }
+
+  .detail-list-icon {
+    @apply w-8 h-8 rounded-full bg-vermillion/10 flex items-center justify-center text-vermillion flex-shrink-0;
+  }
 }
 
 /* Animation delays for staggered fade-in */
@@ -89,3 +123,40 @@
 .animate-delay-400 {
   animation-delay: 0.4s;
 }
+
+/* Section reveal animations using Intersection Observer */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children animation */
+.section-reveal.visible .reveal-child {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.reveal-child {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays for children */
+.reveal-child:nth-child(1) { animation-delay: 0.1s; }
+.reveal-child:nth-child(2) { animation-delay: 0.2s; }
+.reveal-child:nth-child(3) { animation-delay: 0.3s; }
+.reveal-child:nth-child(4) { animation-delay: 0.4s; }
+.reveal-child:nth-child(5) { animation-delay: 0.5s; }
+.reveal-child:nth-child(6) { animation-delay: 0.6s; }

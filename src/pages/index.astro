@@ -20,7 +20,7 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   <Hero />
 
   <!-- Premise -->
-  <section id="premise" class="py-20 px-6 relative overflow-hidden">
+  <section id="premise" class="section-reveal py-20 px-6 relative overflow-hidden">
     <img src="/images/bg_pattern.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 -z-10" />
     <div class="max-w-4xl mx-auto relative z-10">
       <p class="section-label">The Premise</p>
@@ -39,24 +39,36 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   </section>
 
   <!-- Journey -->
-  <section id="journey" class="py-20 px-6 max-w-4xl mx-auto">
+  <section id="journey" class="section-reveal py-20 px-6 max-w-4xl mx-auto">
     <p class="section-label">The Journey</p>
     <h2 class="section-title">Four Acts</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {sortedJourney.map(entry => (
-        <JourneyCard
-          act={entry.data.act}
-          title={entry.data.title}
-          dates={entry.data.dates}
-          description={entry.body}
-          image={entry.data.image}
-        />
-      ))}
+      {sortedJourney.map(entry => {
+        // Map location to page slug
+        const slugMap = {
+          'Tokyo': '/tokyo',
+          'Japanese Alps': '/alps',
+          'Kyoto': '/kyoto',
+          'Osaka': '/osaka',
+        };
+        const href = slugMap[entry.data.location] || '#';
+        
+        return (
+          <JourneyCard
+            act={entry.data.act}
+            title={entry.data.title}
+            dates={entry.data.dates}
+            description={entry.body}
+            image={entry.data.image}
+            href={href}
+          />
+        );
+      })}
     </div>
   </section>
 
   <!-- Timeline -->
-  <section id="timeline" class="py-20 px-6 max-w-4xl mx-auto">
+  <section id="timeline" class="section-reveal py-20 px-6 max-w-4xl mx-auto">
     <p class="section-label">Day by Day</p>
     <h2 class="section-title">The Full Story</h2>
     <div class="relative pl-12 border-l-2 border-gray-800 ml-4">
@@ -75,7 +87,7 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   </section>
 
   <!-- Hotels -->
-  <section id="hotels" class="py-20 px-6 max-w-4xl mx-auto">
+  <section id="hotels" class="section-reveal py-20 px-6 max-w-4xl mx-auto">
     <p class="section-label">Accommodation</p>
     <h2 class="section-title">Where We'll Stay</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -93,7 +105,7 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   </section>
 
   <!-- Flights -->
-  <section id="flights" class="py-20 px-6 relative overflow-hidden">
+  <section id="flights" class="section-reveal py-20 px-6 relative overflow-hidden">
     <img src="/images/flights_map.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 -z-10" />
     <div class="max-w-4xl mx-auto relative z-10">
       <p class="section-label">Getting There</p>
@@ -132,11 +144,24 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
         <p class="text-sm text-gray-500 mt-2">Fly into Tokyo, out of Osaka. Saves 5 hours travel.</p>
       </div>
       </div>
+      
+      <!-- Link to Flights Detail Page -->
+      <div class="mt-8 text-center">
+        <a 
+          href="/flights" 
+          class="inline-flex items-center gap-2 px-6 py-3 bg-vermillion/10 border border-vermillion rounded-lg text-white hover:bg-vermillion/20 hover:border-gold transition-all group"
+        >
+          <span>See Full Flight Details</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Budget -->
-  <section id="budget" class="py-20 px-6 max-w-4xl mx-auto">
+  <section id="budget" class="section-reveal py-20 px-6 max-w-4xl mx-auto">
     <p class="section-label">The Numbers</p>
     <h2 class="section-title">What It Costs</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -190,7 +215,7 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   </section>
 
   <!-- CTA -->
-  <section class="py-24 px-6 text-center relative">
+  <section class="section-reveal py-24 px-6 text-center relative">
     <div class="absolute inset-0 bg-gradient-to-b from-vermillion/10 to-transparent h-48"></div>
     <h2 class="font-display text-4xl mb-4 relative">Are you in?</h2>
     <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>

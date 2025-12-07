@@ -1,0 +1,256 @@
+---
+import DetailPageLayout from '../layouts/DetailPageLayout.astro';
+---
+
+<DetailPageLayout 
+  title="Flight Options"
+  subtitle="Getting to Japan and back - routes, pricing, and logistics"
+  heroImage="/images/flights_map.jpg"
+  actLabel="Planning"
+>
+  <!-- Overview -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Route Overview</h2>
+    <p class="text-gray-400 mb-6">Two main strategies: round-trip to/from Tokyo, or open-jaw (fly into Tokyo, out of Osaka).</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="detail-card border-vermillion">
+        <h3 class="text-gold font-medium mb-3">Option A: Round Trip</h3>
+        <div class="flex items-center justify-center gap-4 my-4">
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+          <div class="text-gray-500">✈ ⟷ ✈</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">HND</div>
+            <div class="text-xs text-gray-500">Tokyo</div>
+          </div>
+        </div>
+        <p class="text-2xl text-gold font-semibold text-center mb-3">~€1,700 for 2</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>• Fly into and out of Tokyo Haneda</li>
+          <li>• Requires Shinkansen back from Osaka</li>
+          <li>• ~5 hours extra travel on return day</li>
+          <li>• Usually cheaper ticket price</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-3">Option B: Open Jaw</h3>
+        <div class="flex items-center justify-center gap-4 my-4">
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+          <div class="text-gray-500 text-xs text-center">→ HND<br/>KIX →</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+        </div>
+        <p class="text-2xl text-gold font-semibold text-center mb-3">~€1,900 for 2</p>
+        <ul class="text-sm text-gray-400 space-y-1">
+          <li>• Fly into Tokyo, out of Osaka (KIX)</li>
+          <li>• No backtracking required</li>
+          <li>• Saves 5+ hours on return day</li>
+          <li>• More relaxed final morning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outbound Flights -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Outbound: Düsseldorf → Tokyo</h2>
+    <p class="text-gray-400 mb-6">Research and compare flight options here.</p>
+    
+    <div class="detail-card mb-4">
+      <h3 class="text-gold font-medium mb-3">Airline Options</h3>
+      <div class="space-y-4">
+        <div class="flex items-start gap-4 py-3 border-b border-gray-800">
+          <div class="w-24 flex-shrink-0 font-medium">Emirates</div>
+          <div>
+            <p class="text-gray-300">Via Dubai (DXB)</p>
+            <p class="text-gray-400 text-sm">Often good prices, excellent service</p>
+            <p class="text-vermillion text-xs mt-1 italic">Add specific flights...</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 py-3 border-b border-gray-800">
+          <div class="w-24 flex-shrink-0 font-medium">ANA</div>
+          <div>
+            <p class="text-gray-300">Via Frankfurt (FRA) - direct to Tokyo</p>
+            <p class="text-gray-400 text-sm">Japanese carrier, premium experience</p>
+            <p class="text-vermillion text-xs mt-1 italic">Add specific flights...</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 py-3 border-b border-gray-800">
+          <div class="w-24 flex-shrink-0 font-medium">Lufthansa</div>
+          <div>
+            <p class="text-gray-300">Via Frankfurt/Munich</p>
+            <p class="text-gray-400 text-sm">Star Alliance, good connections</p>
+            <p class="text-vermillion text-xs mt-1 italic">Add specific flights...</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 py-3">
+          <div class="w-24 flex-shrink-0 font-medium">Others</div>
+          <div>
+            <p class="text-gray-300">Qatar, Turkish, KLM, etc.</p>
+            <p class="text-vermillion text-xs mt-1 italic">Add if researching...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3 class="text-gold font-medium mb-3">Tokyo Airports</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-medium mb-2">Haneda (HND)</h4>
+          <p class="text-gray-400 text-sm">Closer to city center (~30-45 min)</p>
+          <p class="text-gray-400 text-sm">More convenient for arriving late</p>
+        </div>
+        <div>
+          <h4 class="font-medium mb-2">Narita (NRT)</h4>
+          <p class="text-gray-400 text-sm">Further out (~60-90 min)</p>
+          <p class="text-gray-400 text-sm">More international options, sometimes cheaper</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Return Flights -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Return Flight Options</h2>
+    
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">Option A: Return from Tokyo</h3>
+      <div class="detail-card">
+        <p class="text-gray-400 mb-4">Requires traveling back from Osaka on the final day.</p>
+        <div class="bg-surface-2 rounded-lg p-4 mb-4">
+          <h4 class="font-medium mb-2">Shinkansen: Osaka → Tokyo</h4>
+          <ul class="text-sm text-gray-400 space-y-1">
+            <li>• Duration: ~2.5 hours (Nozomi)</li>
+            <li>• Cost: ~¥14,000 (~€90) one-way</li>
+            <li>• Covered by JR Pass if you have one</li>
+            <li>• Need to leave Osaka early morning for afternoon flight</li>
+          </ul>
+        </div>
+        <p class="text-vermillion text-xs italic">Add specific timing calculations...</p>
+      </div>
+    </div>
+
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">Option B: Return from Osaka (KIX)</h3>
+      <div class="detail-card">
+        <p class="text-gray-400 mb-4">Fly directly out of Kansai International Airport.</p>
+        <div class="bg-surface-2 rounded-lg p-4 mb-4">
+          <h4 class="font-medium mb-2">Getting to Kansai Airport</h4>
+          <ul class="text-sm text-gray-400 space-y-1">
+            <li>• From Namba: Nankai Rapi:t (~40 min, ~¥1,500)</li>
+            <li>• From Shin-Osaka: JR Haruka (~50 min, ~¥2,000)</li>
+            <li>• Much more relaxed final morning</li>
+          </ul>
+        </div>
+        <p class="text-vermillion text-xs italic">Add airline options from KIX...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Baggage -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Baggage Policies</h2>
+    <p class="text-gray-400 mb-6">Check specific airline policies when booking.</p>
+    
+    <div class="detail-card">
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🧳</div>
+        <div>
+          <h4 class="font-medium">Checked Baggage</h4>
+          <p class="text-gray-400 text-sm">Most long-haul include 1-2 bags (23kg each). Verify when booking.</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🎒</div>
+        <div>
+          <h4 class="font-medium">Cabin Baggage</h4>
+          <p class="text-gray-400 text-sm">Usually 1 carry-on + 1 personal item. Check dimensions.</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">📦</div>
+        <div>
+          <h4 class="font-medium">Souvenirs & Extras</h4>
+          <p class="text-gray-400 text-sm">Consider packing flexibility for return. Japan has great shopping!</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🍶</div>
+        <div>
+          <h4 class="font-medium">Liquids & Sake</h4>
+          <p class="text-gray-400 text-sm">Alcohol must be in checked bags. Some shops offer shipping.</p>
+        </div>
+      </div>
+      <p class="text-vermillion text-xs mt-4 italic">Add specific airline baggage info...</p>
+    </div>
+  </section>
+
+  <!-- Layovers -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Layover Information</h2>
+    <p class="text-gray-400 mb-6">If you have a long layover, here's what to know.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Dubai (DXB)</h3>
+        <p class="text-gray-400 text-sm">Massive airport with good lounges, shopping, and food options. Transit hotels available for long layovers.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes if using Emirates...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Frankfurt (FRA)</h3>
+        <p class="text-gray-400 text-sm">Efficient German hub. Good for shorter connections. Lufthansa lounges.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Doha (DOH)</h3>
+        <p class="text-gray-400 text-sm">Modern airport, excellent lounges, art installations throughout.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes if using Qatar...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Istanbul (IST)</h3>
+        <p class="text-gray-400 text-sm">Large new airport with many amenities. Turkish Airlines is highly rated.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add notes...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Notes -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Booking Notes</h2>
+    <div class="detail-card">
+      <div class="space-y-4">
+        <div class="flex items-start gap-4">
+          <div class="text-gold">💡</div>
+          <div>
+            <h4 class="font-medium">When to Book</h4>
+            <p class="text-gray-400 text-sm">International flights to Japan typically best 2-4 months ahead. Monitor prices and set alerts.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="text-gold">🔍</div>
+          <div>
+            <h4 class="font-medium">Where to Search</h4>
+            <p class="text-gray-400 text-sm">Google Flights, Skyscanner, Kayak for comparison. Book direct for easier changes.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="text-gold">⚠️</div>
+          <div>
+            <h4 class="font-medium">Flexibility</h4>
+            <p class="text-gray-400 text-sm">Consider refundable or flexible fares given the advance booking timeline.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-vermillion text-xs mt-6 italic">Add your research and final booking details...</p>
+    </div>
+  </section>
+</DetailPageLayout>

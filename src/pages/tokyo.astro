@@ -1,0 +1,184 @@
+---
+import DetailPageLayout from '../layouts/DetailPageLayout.astro';
+---
+
+<DetailPageLayout 
+  title="The Neon Future"
+  subtitle="5 days exploring the city that rebuilt itself from ashes and became the future"
+  heroImage="/images/journey_tokyo.png"
+  actLabel="Act I · Oct 1–6"
+>
+  <!-- Neighborhoods -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Neighborhoods</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Shinjuku</h3>
+        <p class="text-gray-400 text-sm">Neon-lit streets, towering skyscrapers, and the famous Golden Gai district with tiny bars.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Shibuya</h3>
+        <p class="text-gray-400 text-sm">The famous crossing, Hachiko statue, and trendy shopping districts.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Asakusa</h3>
+        <p class="text-gray-400 text-sm">Traditional Tokyo with Senso-ji Temple, Nakamise shopping street.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Akihabara</h3>
+        <p class="text-gray-400 text-sm">Electric Town - anime, manga, electronics, and gaming culture.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Harajuku</h3>
+        <p class="text-gray-400 text-sm">Youth fashion, Takeshita Street, and the serene Meiji Shrine nearby.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+      <div class="detail-card">
+        <h3 class="text-gold font-medium mb-2">Ginza</h3>
+        <p class="text-gray-400 text-sm">Upscale shopping, galleries, and sophisticated dining.</p>
+        <p class="text-vermillion text-xs mt-3 italic">Add your spots here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specific Spots -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Must-Visit Spots</h2>
+    <div class="detail-card">
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🗼</div>
+        <div>
+          <h4 class="font-medium">Tokyo Tower / Skytree</h4>
+          <p class="text-gray-400 text-sm">Iconic observation decks with panoramic city views</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🎮</div>
+        <div>
+          <h4 class="font-medium">TeamLab Borderless</h4>
+          <p class="text-gray-400 text-sm">Digital art museum - book tickets in advance</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🍶</div>
+        <div>
+          <h4 class="font-medium">Golden Gai</h4>
+          <p class="text-gray-400 text-sm">Tiny atmospheric bars in narrow alleys</p>
+        </div>
+      </div>
+      <div class="detail-list-item">
+        <div class="detail-list-icon">🛍️</div>
+        <div>
+          <h4 class="font-medium">Tsukiji Outer Market</h4>
+          <p class="text-gray-400 text-sm">Fresh seafood and street food paradise</p>
+        </div>
+      </div>
+      <p class="text-vermillion text-xs mt-4 italic">Add more spots as you research...</p>
+    </div>
+  </section>
+
+  <!-- Restaurants -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Restaurant List</h2>
+    <p class="text-gray-400 mb-6">Save your research for Tokyo restaurants here. Categorize by type, neighborhood, or must-try status.</p>
+    
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">🍣 Sushi</h3>
+      <div class="detail-card">
+        <p class="text-vermillion text-sm italic">Add sushi restaurants here...</p>
+      </div>
+    </div>
+
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">🍜 Ramen</h3>
+      <div class="detail-card">
+        <p class="text-vermillion text-sm italic">Add ramen shops here...</p>
+      </div>
+    </div>
+
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">🍢 Izakaya</h3>
+      <div class="detail-card">
+        <p class="text-vermillion text-sm italic">Add izakaya spots here...</p>
+      </div>
+    </div>
+
+    <div class="detail-subsection">
+      <h3 class="detail-subsection-title">🎂 Cafes & Desserts</h3>
+      <div class="detail-card">
+        <p class="text-vermillion text-sm italic">Add cafes and dessert spots here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day-by-Day -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Day-by-Day Notes</h2>
+    <div class="space-y-4">
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-vermillion flex items-center justify-center font-semibold">1</div>
+          <div>
+            <h4 class="font-medium">Oct 1 - Arrival</h4>
+            <p class="text-gray-500 text-sm">Wednesday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Add arrival day plans...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-vermillion flex items-center justify-center font-semibold">2</div>
+          <div>
+            <h4 class="font-medium">Oct 2 - Full Day</h4>
+            <p class="text-gray-500 text-sm">Thursday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Add day 2 plans...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-vermillion flex items-center justify-center font-semibold">3</div>
+          <div>
+            <h4 class="font-medium">Oct 3 - Full Day</h4>
+            <p class="text-gray-500 text-sm">Friday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Add day 3 plans...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-vermillion flex items-center justify-center font-semibold">4</div>
+          <div>
+            <h4 class="font-medium">Oct 4 - Full Day</h4>
+            <p class="text-gray-500 text-sm">Saturday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Add day 4 plans...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-vermillion flex items-center justify-center font-semibold">5</div>
+          <div>
+            <h4 class="font-medium">Oct 5 - Full Day</h4>
+            <p class="text-gray-500 text-sm">Sunday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Add day 5 plans...</p>
+      </div>
+      <div class="detail-card">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-gold text-bg flex items-center justify-center font-semibold">6</div>
+          <div>
+            <h4 class="font-medium">Oct 6 - Departure to Alps</h4>
+            <p class="text-gray-500 text-sm">Monday</p>
+          </div>
+        </div>
+        <p class="text-vermillion text-sm italic">Travel day to Kanazawa...</p>
+      </div>
+    </div>
+  </section>
+</DetailPageLayout>

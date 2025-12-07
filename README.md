@@ -38,19 +38,105 @@ japan-trip/
 │   │   ├── Footer.astro
 │   │   ├── JourneyCard.astro
 │   │   ├── TimelineItem.astro
-│   │   └── HotelCard.astro
+│   │   ├── HotelCard.astro
+│   │   └── DetailHero.astro    # Hero for detail pages
 │   ├── content/          # Markdown content (editable data)
 │   │   ├── journey/      # The 4 "Acts" of the trip
 │   │   ├── timeline/     # Day-by-day itinerary
 │   │   ├── hotels/       # Accommodation options
 │   │   └── config.ts     # Content schemas
 │   ├── layouts/
-│   │   └── MainLayout.astro
+│   │   ├── MainLayout.astro        # Home page layout
+│   │   └── DetailPageLayout.astro  # Detail pages layout
 │   └── pages/
-│       └── index.astro   # Main page
+│       ├── index.astro   # Main page
+│       ├── tokyo.astro   # Tokyo detail page
+│       ├── alps.astro    # Japanese Alps detail page
+│       ├── kyoto.astro   # Kyoto detail page
+│       ├── osaka.astro   # Osaka detail page
+│       └── flights.astro # Flights detail page
 ├── astro.config.mjs      # Astro configuration
 ├── tailwind.config.mjs   # Tailwind theme & colors
 └── package.json
+```
+
+---
+
+## Adding New Detail Pages
+
+Detail pages are standalone pages for deep research on specific destinations or topics.
+
+### Create a new detail page
+
+1. Create a new file in `src/pages/`, e.g., `src/pages/nara.astro`
+2. Use the `DetailPageLayout` component:
+
+```astro
+---
+import DetailPageLayout from '../layouts/DetailPageLayout.astro';
+---
+
+<DetailPageLayout 
+  title="Day Trip to Nara"
+  subtitle="Ancient capital with friendly deer and massive Buddha"
+  heroImage="/images/nara_hero.jpg"
+  actLabel="Day Trip"
+>
+  <!-- Your content sections go here -->
+  <section class="detail-section section-reveal">
+    <h2 class="detail-section-title">Highlights</h2>
+    <div class="detail-card">
+      <p>Your research notes here...</p>
+    </div>
+  </section>
+</DetailPageLayout>
+```
+
+### Available layout props
+
+| Prop | Required | Description |
+|------|----------|-------------|
+| `title` | Yes | Page title (shown in hero) |
+| `subtitle` | No | Subtitle under title |
+| `heroImage` | Yes | Path to hero background image |
+| `actLabel` | No | Small label above title (e.g., "Act I", "Day Trip") |
+
+### Available CSS classes for content
+
+| Class | Description |
+|-------|-------------|
+| `detail-section` | Main content section with spacing |
+| `section-reveal` | Adds fade-in animation on scroll |
+| `detail-section-title` | Section heading with accent bar |
+| `detail-subsection` | Subsection with smaller spacing |
+| `detail-subsection-title` | Subsection heading (gold color) |
+| `detail-card` | Card container with border |
+| `detail-list-item` | List item with icon support |
+| `detail-list-icon` | Circular icon container |
+
+### Example: Adding a card with items
+
+```astro
+<section class="detail-section section-reveal">
+  <h2 class="detail-section-title">Must-Visit Spots</h2>
+  <div class="detail-card">
+    <div class="detail-list-item">
+      <div class="detail-list-icon">🦌</div>
+      <div>
+        <h4 class="font-medium">Nara Park</h4>
+        <p class="text-gray-400 text-sm">Over 1,000 sacred deer roam freely</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+### Linking to your new page
+
+The page will be available at `/nara` (matching the filename). To link from the homepage, you can add a card or button:
+
+```astro
+<a href="/nara" class="detail-card">Visit Nara page</a>
 ```
 
 ---
