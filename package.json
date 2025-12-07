@@ -2,7 +2,7 @@
   "name": "october-loop-japan",
   "type": "module",
   "version": "1.0.0",
-  "description": "The October Loop - A 15-day journey through time in Japan",
+  "description": "Time Traveler’s Itinerary - A 15-day journey through time in Japan",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -4,17 +4,21 @@ interface Props {
   title?: string;
   subtitle?: string;
   route?: string;
+  image?: string;
 }
 
 const {
   dates = 'October 1–15, 2026',
-  title = 'The October Loop',
+  title = 'Time Traveler’s Itinerary',
   subtitle = 'A 15-Day Journey Through Time in Japan',
-  route = 'Düsseldorf → Tokyo → Alps → Kyoto → Osaka → Home'
+  route = 'Düsseldorf → Tokyo → Alps → Kyoto → Osaka → Home',
+  image = '/images/hero_shibuya.png',
 } = Astro.props;
 ---
 
 <section class="min-h-screen flex flex-col justify-center items-center text-center relative pt-14">
+  <!-- Background image -->
+  <img src={image} alt="Shibuya Crossing" class="absolute inset-0 w-full h-full object-cover opacity-30 -z-10" />
   <!-- Top accent bar -->
   <div class="absolute top-0 left-0 right-0 h-1 bg-vermillion"></div>
   
