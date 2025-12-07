@@ -9,9 +9,10 @@ interface Props {
     title: string;
     description: string;
   };
+  image?: string;
 }
 
-const { day, title, location, description, type = 'default', highlight } = Astro.props;
+const { day, title, location, description, type = 'default', highlight, image } = Astro.props;
 
 const markerClass = {
   default: 'timeline-marker',
@@ -27,18 +28,37 @@ const displayDay = type === 'birthday' ? '🎂' : day;
   <div class={markerClass} style="position: absolute; left: -50px;">
     {displayDay}
   </div>
-  <div class="bg-surface rounded-xl p-5">
-    <h4 class="font-display text-xl mb-1">{title}</h4>
-    <p class="text-sm text-gold mb-2">{location}</p>
-    <p class="text-sm text-gray-400">{description}</p>
-    
-    {highlight && (
-      <div class="mt-3 p-4 bg-gold-muted border border-gold rounded-lg">
-        <h5 class="text-[0.65rem] tracking-wider text-gold uppercase mb-1">
-          {highlight.title}
-        </h5>
-        <p class="text-sm text-white" set:html={highlight.description} />
-      </div>
+  <div class="relative overflow-hidden rounded-xl">
+    {/* Background - either image or solid color */}
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+    ) : (
+      <div class="absolute inset-0 bg-surface"></div>
     )}
+
+    {/* Dark overlay for readability when image present */}
+    {image && (
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    )}
+
+    {/* Content */}
+    <div class="relative z-10 p-5">
+      <h4 class="font-display text-xl mb-1">{title}</h4>
+      <p class="text-sm text-gold mb-2">{location}</p>
+      <p class="text-sm text-gray-300">{description}</p>
+
+      {highlight && (
+        <div class="mt-3 p-4 bg-gold-muted border border-gold rounded-lg">
+          <h5 class="text-[0.65rem] tracking-wider text-gold uppercase mb-1">
+            {highlight.title}
+          </h5>
+          <p class="text-sm text-white" set:html={highlight.description} />
+        </div>
+      )}
+    </div>
   </div>
 </div>

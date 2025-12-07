@@ -9,6 +9,7 @@ const journeyCollection = defineCollection({
     location: z.string(),
     order: z.number(),
     highlight: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -24,6 +25,7 @@ const timelineCollection = defineCollection({
       title: z.string(),
       description: z.string(),
     }).optional(),
+    image: z.string().optional(),
   }),
 });
 

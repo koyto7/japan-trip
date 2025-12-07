@@ -20,19 +20,22 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   <Hero />
 
   <!-- Premise -->
-  <section id="premise" class="py-20 px-6 max-w-4xl mx-auto">
-    <p class="section-label">The Premise</p>
-    <h2 class="section-title">Time Travel With Good Food</h2>
-    <blockquote class="font-display text-2xl italic border-l-[3px] border-gold pl-6 mb-6">
-      What if you could walk through a living museum where every street corner tells a different century's story?
-    </blockquote>
-    <p class="text-gray-400 mb-4">
-      In 15 days, we travel from neon-drenched robot restaurants to samurai districts preserved since 1600. 
-      We wake in 200-year-old wooden inns. We stand on bridges where mountain water is so clear it looks digital.
-    </p>
-    <p class="text-vermillion font-medium">
-      This isn't tourism. This is time travel with good food.
-    </p>
+  <section id="premise" class="py-20 px-6 relative overflow-hidden">
+    <img src="/images/bg_pattern.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 -z-10" />
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="section-label">The Premise</p>
+      <h2 class="section-title">Time Travel With Good Food</h2>
+      <blockquote class="font-display text-2xl italic border-l-[3px] border-gold pl-6 mb-6">
+        What if you could walk through a living museum where every street corner tells a different century's story?
+      </blockquote>
+      <p class="text-gray-400 mb-4">
+        In 15 days, we travel from neon-drenched robot restaurants to samurai districts preserved since 1600.
+        We wake in 200-year-old wooden inns. We stand on bridges where mountain water is so clear it looks digital.
+      </p>
+      <p class="text-vermillion font-medium">
+        This isn't tourism. This is time travel with good food.
+      </p>
+    </div>
   </section>
 
   <!-- Journey -->
@@ -41,11 +44,12 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
     <h2 class="section-title">Four Acts</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {sortedJourney.map(entry => (
-        <JourneyCard 
+        <JourneyCard
           act={entry.data.act}
           title={entry.data.title}
           dates={entry.data.dates}
           description={entry.body}
+          image={entry.data.image}
         />
       ))}
     </div>
@@ -57,13 +61,14 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
     <h2 class="section-title">The Full Story</h2>
     <div class="relative pl-12 border-l-2 border-gray-800 ml-4">
       {sortedTimeline.map(entry => (
-        <TimelineItem 
+        <TimelineItem
           day={entry.data.day}
           title={entry.data.title}
           location={entry.data.location}
           description={entry.body}
           type={entry.data.type}
           highlight={entry.data.highlight}
+          image={entry.data.image}
         />
       ))}
     </div>
@@ -88,10 +93,12 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
   </section>
 
   <!-- Flights -->
-  <section id="flights" class="py-20 px-6 max-w-4xl mx-auto">
-    <p class="section-label">Getting There</p>
-    <h2 class="section-title">Flight Options</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <section id="flights" class="py-20 px-6 relative overflow-hidden">
+    <img src="/images/flights_map.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 -z-10" />
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="section-label">Getting There</p>
+      <h2 class="section-title">Flight Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="bg-surface rounded-xl p-5 border border-vermillion">
         <h4 class="font-display text-lg mb-4">Option A: Round Trip</h4>
         <div class="flex items-center gap-3 mb-4">
@@ -123,6 +130,7 @@ const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
         </div>
         <p class="text-2xl text-gold font-semibold">~€1,900 for 2</p>
         <p class="text-sm text-gray-500 mt-2">Fly into Tokyo, out of Osaka. Saves 5 hours travel.</p>
+      </div>
       </div>
     </div>
   </section>

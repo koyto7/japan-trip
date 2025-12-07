@@ -4,6 +4,7 @@ date: "October 7"
 title: "October 7 — Nikita's Birthday"
 location: "Kanazawa"
 type: "birthday"
+image: "/images/day_birthday.png"
 highlight:
   title: "Birthday Dinner"
   description: "<strong>Otome Sushi</strong> — 8-seat counter, 2 Michelin stars. A 75-year-old master with 50+ years experience serves Kanazawa's legendary seafood."
