@@ -1,16 +1,201 @@
 ---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import JourneyCard from '../components/JourneyCard.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import HotelCard from '../components/HotelCard.astro';
+import { getCollection } from 'astro:content';
 
+// Get all content collections
+const journeyEntries = await getCollection('journey');
+const timelineEntries = await getCollection('timeline');
+const hotelEntries = await getCollection('hotels');
+
+// Sort by order/day
+const sortedJourney = journeyEntries.sort((a, b) => a.data.order - b.data.order);
+const sortedTimeline = timelineEntries.sort((a, b) => a.data.day - b.data.day);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <Hero />
+
+  <!-- Premise -->
+  <section id="premise" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">The Premise</p>
+    <h2 class="section-title">Time Travel With Good Food</h2>
+    <blockquote class="font-display text-2xl italic border-l-[3px] border-gold pl-6 mb-6">
+      What if you could walk through a living museum where every street corner tells a different century's story?
+    </blockquote>
+    <p class="text-gray-400 mb-4">
+      In 15 days, we travel from neon-drenched robot restaurants to samurai districts preserved since 1600. 
+      We wake in 200-year-old wooden inns. We stand on bridges where mountain water is so clear it looks digital.
+    </p>
+    <p class="text-vermillion font-medium">
+      This isn't tourism. This is time travel with good food.
+    </p>
+  </section>
+
+  <!-- Journey -->
+  <section id="journey" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">The Journey</p>
+    <h2 class="section-title">Four Acts</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {sortedJourney.map(entry => (
+        <JourneyCard 
+          act={entry.data.act}
+          title={entry.data.title}
+          dates={entry.data.dates}
+          description={entry.body}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">Day by Day</p>
+    <h2 class="section-title">The Full Story</h2>
+    <div class="relative pl-12 border-l-2 border-gray-800 ml-4">
+      {sortedTimeline.map(entry => (
+        <TimelineItem 
+          day={entry.data.day}
+          title={entry.data.title}
+          location={entry.data.location}
+          description={entry.body}
+          type={entry.data.type}
+          highlight={entry.data.highlight}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Hotels -->
+  <section id="hotels" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">Accommodation</p>
+    <h2 class="section-title">Where We'll Stay</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {hotelEntries.map(entry => (
+        <HotelCard 
+          location={entry.data.location}
+          name={entry.data.name}
+          dates={entry.data.dates}
+          price={entry.data.price}
+          status={entry.data.status}
+          notes={entry.data.notes}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Flights -->
+  <section id="flights" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">Getting There</p>
+    <h2 class="section-title">Flight Options</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-surface rounded-xl p-5 border border-vermillion">
+        <h4 class="font-display text-lg mb-4">Option A: Round Trip</h4>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+          <div class="flex-1 text-center text-gray-500">✈ ⟷ ✈</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">HND</div>
+            <div class="text-xs text-gray-500">Tokyo</div>
+          </div>
+        </div>
+        <p class="text-2xl text-gold font-semibold">~€1,700 for 2</p>
+        <p class="text-sm text-gray-500 mt-2">Emirates via Dubai. Requires Shinkansen back from Osaka.</p>
+      </div>
+      <div class="bg-surface rounded-xl p-5 border border-gray-700">
+        <h4 class="font-display text-lg mb-4">Option B: Open Jaw</h4>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+          <div class="flex-1 text-center text-gray-500">→ HND → KIX →</div>
+          <div class="text-center">
+            <div class="text-2xl font-bold">DUS</div>
+            <div class="text-xs text-gray-500">Düsseldorf</div>
+          </div>
+        </div>
+        <p class="text-2xl text-gold font-semibold">~€1,900 for 2</p>
+        <p class="text-sm text-gray-500 mt-2">Fly into Tokyo, out of Osaka. Saves 5 hours travel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget -->
+  <section id="budget" class="py-20 px-6 max-w-4xl mx-auto">
+    <p class="section-label">The Numbers</p>
+    <h2 class="section-title">What It Costs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="text-sm text-gray-400 mb-3">Per Person Estimate</h4>
+        <div class="space-y-2">
+          <div class="flex justify-between p-3 bg-surface rounded-lg">
+            <span>Flights (roundtrip)</span>
+            <span class="text-gold">€850–1,100</span>
+          </div>
+          <div class="flex justify-between p-3 bg-surface rounded-lg">
+            <span>Accommodation (14 nights)</span>
+            <span class="text-gold">€1,300–2,000</span>
+          </div>
+          <div class="flex justify-between p-3 bg-surface rounded-lg">
+            <span>JR Pass & Transport</span>
+            <span class="text-gold">€200–300</span>
+          </div>
+          <div class="flex justify-between p-3 bg-surface rounded-lg">
+            <span>Birthday dinners</span>
+            <span class="text-gold">€200–350</span>
+          </div>
+          <div class="flex justify-between p-3 bg-vermillion rounded-lg font-semibold">
+            <span>Base Total</span>
+            <span>€2,550–3,750</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600 mt-3">+ €100–150/day for meals, attractions, shopping</p>
+      </div>
+      <div>
+        <h4 class="text-sm text-gray-400 mb-3">Choose Your Level</h4>
+        <div class="space-y-2">
+          <div class="bg-surface rounded-lg p-4 border-l-[3px] border-gray-700">
+            <div class="text-xs tracking-wider text-gray-500 uppercase">🎒 Backpacker Deluxe</div>
+            <div class="text-xl font-medium">€3,500–4,500</div>
+            <div class="text-sm text-gray-500">Budget hotels, street food focus</div>
+          </div>
+          <div class="bg-surface rounded-lg p-4 border-l-[3px] border-gold">
+            <div class="text-xs tracking-wider text-gold uppercase">🏨 Comfortable Explorer ★</div>
+            <div class="text-xl font-medium">€4,500–5,500</div>
+            <div class="text-sm text-gray-500">Boutique hotels, great restaurants</div>
+          </div>
+          <div class="bg-surface rounded-lg p-4 border-l-[3px] border-gray-700">
+            <div class="text-xs tracking-wider text-gray-500 uppercase">🏯 Treat Yourself</div>
+            <div class="text-xl font-medium">€5,500–7,000</div>
+            <div class="text-sm text-gray-500">Luxury ryokans, top-tier dining</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 text-center relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-vermillion/10 to-transparent h-48"></div>
+    <h2 class="font-display text-4xl mb-4 relative">Are you in?</h2>
+    <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+    <p class="text-gray-400 max-w-md mx-auto mb-8">
+      In 15 days, we'll watch sunrises over ancient temples, eat sushi from masters, 
+      walk through villages unchanged for centuries, and fill our memories with moments that belong in movies.
+    </p>
+    <div class="inline-block bg-vermillion/10 border border-vermillion rounded-lg px-8 py-4">
+      <p class="text-white">
+        <span class="text-gold font-semibold">Deadline:</span> Let us know by 
+        <span class="text-vermillion font-semibold">January 31, 2026</span>
+      </p>
+      <p class="text-sm text-gray-500 mt-1">Festival ryokans book out 6 months in advance</p>
+    </div>
+  </section>
+</MainLayout>

@@ -1,14 +1,20 @@
 {
-  "name": "japan-trip",
+  "name": "october-loop-japan",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "The October Loop - A 15-day journey through time in Japan",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.4"
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/sitemap": "^3.1.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.15.0",
+    "tailwindcss": "^3.4.0"
   }
 }

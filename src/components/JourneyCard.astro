@@ -1,0 +1,25 @@
+---
+interface Props {
+  act: string;
+  title: string;
+  dates: string;
+  description: string;
+}
+
+const { act, title, dates, description } = Astro.props;
+---
+
+<div class="card">
+  <p class="text-[0.65rem] tracking-widest text-vermillion uppercase mb-2">
+    {act}
+  </p>
+  <h3 class="font-display text-2xl font-normal mb-1">
+    {title}
+  </h3>
+  <p class="text-sm text-gold mb-3">
+    {dates}
+  </p>
+  <p class="text-sm text-gray-400">
+    {description}
+  </p>
+</div>

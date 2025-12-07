@@ -1,0 +1,40 @@
+---
+interface Props {
+  dates?: string;
+  title?: string;
+  subtitle?: string;
+  route?: string;
+}
+
+const {
+  dates = 'October 1–15, 2026',
+  title = 'The October Loop',
+  subtitle = 'A 15-Day Journey Through Time in Japan',
+  route = 'Düsseldorf → Tokyo → Alps → Kyoto → Osaka → Home'
+} = Astro.props;
+---
+
+<section class="min-h-screen flex flex-col justify-center items-center text-center relative pt-14">
+  <!-- Top accent bar -->
+  <div class="absolute top-0 left-0 right-0 h-1 bg-vermillion"></div>
+  
+  <div class="px-6">
+    <p class="text-sm tracking-[4px] text-vermillion uppercase mb-6 animate-fade-up">
+      {dates}
+    </p>
+    
+    <h1 class="font-display text-5xl md:text-7xl font-normal mb-3 animate-fade-up animate-delay-100">
+      {title}
+    </h1>
+    
+    <p class="text-xl text-gray-400 mb-10 animate-fade-up animate-delay-200">
+      {subtitle}
+    </p>
+    
+    <div class="w-20 h-0.5 bg-gold mx-auto mb-6 animate-fade-up animate-delay-300"></div>
+    
+    <p class="text-sm text-gray-600 animate-fade-up animate-delay-400">
+      {route}
+    </p>
+  </div>
+</section>

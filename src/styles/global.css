@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-bg text-white font-body;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-vermillion rounded;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs tracking-[3px] text-vermillion uppercase mb-2;
+  }
+  
+  .section-title {
+    @apply font-display text-4xl font-normal mb-6;
+  }
+
+  .card {
+    @apply bg-surface rounded-xl p-5 border-t-[3px] border-vermillion;
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  .timeline-marker {
+    @apply w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold;
+    @apply bg-vermillion text-white;
+  }
+  
+  .timeline-marker-birthday {
+    @apply bg-gold text-bg;
+  }
+  
+  .timeline-marker-nature {
+    @apply bg-green-800;
+  }
+
+  .hotel-card {
+    @apply bg-surface rounded-xl p-5 border-l-[3px] border-gray-700;
+  }
+  
+  .hotel-card-confirmed {
+    @apply border-l-gold;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-[0.65rem] tracking-wider uppercase;
+  }
+  
+  .badge-pending {
+    @apply bg-white/10 text-gray-400;
+  }
+  
+  .badge-booked {
+    @apply bg-gold-muted text-gold;
+  }
+  
+  .badge-priority {
+    @apply bg-vermillion/20 text-vermillion;
+  }
+}
+
+/* Animation delays for staggered fade-in */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }

@@ -1,0 +1,35 @@
+---
+interface Props {
+  location: string;
+  name: string;
+  dates: string;
+  price: string;
+  status: 'pending' | 'booked' | 'priority';
+  notes?: string;
+}
+
+const { location, name, dates, price, status, notes } = Astro.props;
+
+const cardClass = status === 'booked' ? 'hotel-card hotel-card-confirmed' : 'hotel-card';
+const badgeClass = `badge badge-${status}`;
+const priceClass = price.includes('TBD') || price.includes('...') ? 'text-gray-500 italic' : 'text-gold font-medium';
+
+const statusLabel = {
+  pending: 'Pending',
+  booked: 'Booked',
+  priority: 'Priority Booking',
+}[status];
+---
+
+<div class={cardClass}>
+  <p class="text-[0.65rem] tracking-widest text-vermillion uppercase mb-1">
+    {location}
+  </p>
+  <h4 class="font-display text-lg mb-1">{name}</h4>
+  <p class="text-sm text-gray-400 mb-2">{dates}</p>
+  <p class={priceClass}>{price}</p>
+  {notes && (
+    <p class="text-sm text-gray-500 mt-2">{notes}</p>
+  )}
+  <span class={badgeClass}>{statusLabel}</span>
+</div>

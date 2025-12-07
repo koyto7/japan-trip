@@ -1,0 +1,44 @@
+---
+interface Props {
+  day: number | string;
+  title: string;
+  location: string;
+  description: string;
+  type?: 'default' | 'birthday' | 'nature' | 'travel';
+  highlight?: {
+    title: string;
+    description: string;
+  };
+}
+
+const { day, title, location, description, type = 'default', highlight } = Astro.props;
+
+const markerClass = {
+  default: 'timeline-marker',
+  birthday: 'timeline-marker timeline-marker-birthday',
+  nature: 'timeline-marker timeline-marker-nature',
+  travel: 'timeline-marker',
+}[type];
+
+const displayDay = type === 'birthday' ? '🎂' : day;
+---
+
+<div class="relative mb-6">
+  <div class={markerClass} style="position: absolute; left: -50px;">
+    {displayDay}
+  </div>
+  <div class="bg-surface rounded-xl p-5">
+    <h4 class="font-display text-xl mb-1">{title}</h4>
+    <p class="text-sm text-gold mb-2">{location}</p>
+    <p class="text-sm text-gray-400">{description}</p>
+    
+    {highlight && (
+      <div class="mt-3 p-4 bg-gold-muted border border-gold rounded-lg">
+        <h5 class="text-[0.65rem] tracking-wider text-gold uppercase mb-1">
+          {highlight.title}
+        </h5>
+        <p class="text-sm text-white" set:html={highlight.description} />
+      </div>
+    )}
+  </div>
+</div>
