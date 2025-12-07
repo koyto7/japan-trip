@@ -18,7 +18,7 @@ const {
 
 <section class="min-h-screen flex flex-col justify-center items-center text-center relative pt-14">
   <!-- Background image -->
-  <img src={image} alt="Shibuya Crossing" class="absolute inset-0 w-full h-full object-cover opacity-30 -z-10" />
+  <img src={image} alt="Shibuya Crossing" class="absolute inset-0 w-full h-full object-cover opacity-20 -z-10" />
   <!-- Top accent bar -->
   <div class="absolute top-0 left-0 right-0 h-1 bg-vermillion"></div>
   
@@ -31,14 +31,39 @@ const {
       {title}
     </h1>
     
-    <p class="text-xl text-gray-400 mb-10 animate-fade-up animate-delay-200">
+    <p class="text-xl text-gray-300 mb-10 animate-fade-up animate-delay-200">
       {subtitle}
     </p>
     
     <div class="w-20 h-0.5 bg-gold mx-auto mb-6 animate-fade-up animate-delay-300"></div>
     
-    <p class="text-sm text-gray-600 animate-fade-up animate-delay-400">
+    <p class="text-sm text-gray-300 animate-fade-up animate-delay-400">
       {route}
     </p>
+
+    <!-- Countdown: days until Oct 1, 2026 -->
+    <div class="mt-6 animate-fade-up animate-delay-400">
+      <span id="countdown-days" class="text-3xl font-semibold text-gold" aria-live="polite">—</span>
+      <span class="ml-2 text-sm text-gray-300">days until October 1, 2026</span>
+    </div>
   </div>
+
+  <!-- Inline client-side script to update the countdown -->
+  <script type="module">
+    const el = document.getElementById('countdown-days');
+    function updateCountdown() {
+      if (!el) return;
+      const now = new Date();
+      // Months are 0-indexed: 9 = October
+      const target = new Date(now.getFullYear() > 2026 ? 2026 : 2026, 9, 1);
+      // If the target year already passed in current year and current year > 2026, keep 2026
+      // Calculate difference in days (ceil so partial days count as 1)
+      const diff = target.getTime() - now.getTime();
+      const days = diff > 0 ? Math.ceil(diff / (1000 * 60 * 60 * 24)) : 0;
+      el.textContent = String(days);
+    }
+    updateCountdown();
+    // Update periodically (every minute) to keep it accurate across timezones/clock changes
+    setInterval(updateCountdown, 60_000);
+  </script>
 </section>
