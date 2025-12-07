@@ -13,6 +13,8 @@ const navLinks = [
     <a href="#" class="font-display text-xl text-white hover:text-gold transition-colors">
       Time Traveler’s Itinerary
     </a>
+    
+    <!-- Desktop Navigation -->
     <ul class="hidden md:flex gap-6">
       {navLinks.map(link => (
         <li>
@@ -25,5 +27,105 @@ const navLinks = [
         </li>
       ))}
     </ul>
+
+    <!-- Mobile Hamburger Button -->
+    <button 
+      id="menu-toggle" 
+      class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-[60]"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger-line w-6 h-0.5 bg-white rounded transition-all duration-300 ease-out origin-center"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-white rounded transition-all duration-300 ease-out origin-center"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-white rounded transition-all duration-300 ease-out origin-center"></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Drawer Overlay -->
+<div 
+  id="drawer-overlay" 
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+></div>
+
+<!-- Mobile Slide-out Drawer -->
+<aside 
+  id="mobile-drawer" 
+  class="fixed top-0 right-0 h-full w-72 bg-surface border-l border-gray-800 z-[56] translate-x-full transition-transform duration-300 ease-out md:hidden"
+>
+  <div class="pt-20 px-6">
+    <ul class="flex flex-col gap-2">
+      {navLinks.map(link => (
+        <li>
+          <a 
+            href={link.href} 
+            class="drawer-link block py-3 px-4 text-gray-300 text-lg hover:text-gold hover:bg-white/5 rounded-lg transition-all duration-200"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>
+
+<style>
+  /* Hamburger to X animation */
+  .menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const drawerLinks = document.querySelectorAll('.drawer-link');
+
+  function openMenu() {
+    menuToggle?.classList.add('menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    drawer?.classList.remove('translate-x-full');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menuToggle?.classList.remove('menu-open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    drawer?.classList.add('translate-x-full');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = menuToggle.classList.contains('menu-open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Close on overlay click
+  overlay?.addEventListener('click', closeMenu);
+
+  // Close on link click
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+</script>

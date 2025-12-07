@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Page not found - Lost in Japan" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>404 — Lost in Japan</title>
+  </head>
+  <body class="min-h-screen bg-bg text-white overflow-hidden">
+    
+    <!-- Animated floating elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+      <div class="lantern lantern-1">🏮</div>
+      <div class="lantern lantern-2">🏮</div>
+      <div class="lantern lantern-3">🏮</div>
+      <div class="sakura sakura-1">🌸</div>
+      <div class="sakura sakura-2">🌸</div>
+      <div class="sakura sakura-3">🌸</div>
+      <div class="sakura sakura-4">🌸</div>
+      <div class="sakura sakura-5">🌸</div>
+    </div>
+
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 py-16 relative z-10">
+      
+      <!-- Large 404 with Japanese overlay -->
+      <div class="relative mb-6 h-40 md:h-56 flex items-center justify-center">
+        <span class="error-number text-[10rem] md:text-[14rem] font-display font-bold leading-none text-vermillion/20 select-none">
+          404
+        </span>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-6xl md:text-8xl">🗾</span>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div class="text-center max-w-lg">
+        <h1 class="font-display text-3xl md:text-4xl mb-3 text-white">
+          迷子になりました
+        </h1>
+        <p class="text-gray-400 text-base mb-1 italic">
+          "Maigo ni narimashita"
+        </p>
+        <p class="text-gray-300 text-lg mb-6">
+          You've gotten lost in Japan!
+        </p>
+        
+        <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
+          Like wandering into a hidden alley in Kyoto, you've found a page that doesn't exist. 
+          But don't worry — every wrong turn leads to a new discovery!
+        </p>
+
+        <!-- Return button and proverb -->
+        <div class="flex flex-col items-center gap-8 mt-2">
+          <a 
+            href="/" 
+            class="return-btn group inline-flex items-center gap-3 px-8 py-4 text-white font-medium"
+          >
+            <span class="text-lg transition-transform duration-300">🏠</span>
+            <span>Return to the Itinerary</span>
+          </a>
+          
+          <!-- Japanese proverb -->
+          <p class="text-gray-600 text-sm italic">
+            "七転び八起き" — Fall seven times, stand up eight
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      /* Floating lanterns */
+      .lantern {
+        position: absolute;
+        font-size: 2rem;
+        animation: float-lantern 8s ease-in-out infinite;
+      }
+      .lantern-1 { top: 10%; left: 10%; animation-delay: 0s; }
+      .lantern-2 { top: 20%; right: 15%; animation-delay: 2s; font-size: 2.5rem; }
+      .lantern-3 { bottom: 30%; left: 8%; animation-delay: 4s; font-size: 1.5rem; }
+
+      @keyframes float-lantern {
+        0%, 100% { transform: translateY(0) rotate(-5deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+      }
+
+      /* Falling sakura petals */
+      .sakura {
+        position: absolute;
+        font-size: 1.5rem;
+        top: -20px;
+        animation: fall-sakura linear infinite;
+      }
+      .sakura-1 { left: 15%; animation-duration: 10s; animation-delay: 0s; }
+      .sakura-2 { left: 35%; animation-duration: 12s; animation-delay: 2s; font-size: 1rem; }
+      .sakura-3 { left: 55%; animation-duration: 14s; animation-delay: 1s; }
+      .sakura-4 { left: 75%; animation-duration: 11s; animation-delay: 3s; font-size: 1.2rem; }
+      .sakura-5 { left: 90%; animation-duration: 13s; animation-delay: 5s; font-size: 0.8rem; }
+
+      @keyframes fall-sakura {
+        0% { 
+          transform: translateY(-20px) rotate(0deg) translateX(0); 
+          opacity: 1;
+        }
+        100% { 
+          transform: translateY(110vh) rotate(720deg) translateX(50px); 
+          opacity: 0.3;
+        }
+      }
+
+      /* Subtle background pattern */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: 
+          radial-gradient(circle at 20% 80%, rgba(196, 30, 58, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      /* Return Button Styles */
+      .return-btn {
+        background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+        border-radius: 9999px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .return-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 30px rgba(196, 30, 58, 0.6);
+        filter: brightness(1.1);
+      }
+      
+      .return-btn:hover span:first-child {
+        transform: scale(1.1);
+      }
+      
+      /* Reset specific to this button to ensure no overrides */
+      a.return-btn {
+        display: inline-flex;
+        border: none;
+        outline: none;
+      }
+    </style>
+  </body>
+</html>
